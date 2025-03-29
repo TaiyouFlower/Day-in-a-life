@@ -1,0 +1,118 @@
+{
+    "simulationTitle": "Day in the Life: Junior Frontend Developer at Innovatech",
+    "initialStepId": "step1",
+    "steps": [
+      {
+        "id": "step1",
+        "type": "instruction",
+        "content": "Welcome to your simulated day! Let's start by checking company messages. Developers here often use Telegram first.",
+        "actionText": "Okay, got it!",
+        "nextStepId": "step2"
+      },
+      {
+        "id": "step2",
+        "type": "waitForAppOpen",
+        "app": "telegram",
+        "content": "Click the Telegram icon on the taskbar to open messages.",
+        "nextStepId": "step3"
+      },
+      {
+        "id": "step3",
+        "type": "instruction",
+        "targetApp": "telegram",
+        "content": "Great! Looks like you have a message from your lead. Read it in Telegram.",
+        "actionText": "Done Reading",
+        "nextStepId": "step4"
+      },
+      {
+        "id": "step4",
+        "type": "instruction",
+        "content": "Now, let's check your task board. Open Chrome (where the Trello board is).",
+        "actionText": "Will do",
+        "nextStepId": "step5"
+      },
+      {
+        "id": "step5",
+        "type": "waitForAppOpen",
+        "app": "chrome",
+        "content": "Click the Chrome icon on the taskbar to open the task board.",
+        "nextStepId": "step6"
+      },
+      {
+        "id": "step6", 
+        "type": "instruction",
+        "targetApp": "chrome",
+        "content": "Okay, the board is open. Find the task 'Fix mobile menu animation jank' in the 'Dev - To Do' column and click on it to see the details.",
+        "nextStepId": "step7" 
+        
+    },
+    {
+        "id": "step7",
+        "type": "instruction",
+        "targetApp": "chrome",
+        "content": "Great! Now imagine you've fixed the animation. Let's mark this task as done. (Functionality to mark done coming soon!)",
+        "actionText": "Okay",
+        "nextStepId": "step8" 
+    },
+      {
+         "id": "end",
+         "type": "message",
+         "content": "Simulation Ended (for now!)."
+      }
+    ],
+    "emails": [
+    {
+        "id": "email001", 
+        "sender": "Lead Developer",
+        "subject": "Quick Sync Request", 
+        "body": "Hey team,\n\nCan we sync briefly at 10 AM about the login feature? Need to discuss the auth flow.\n\nThanks,\nAlex",
+        "time": "09:45",
+        "avatar": "LD", 
+        "stepIdToShow": "step3" 
+    },
+    {
+        "id": "email002",
+        "sender": "HR Bot",
+        "subject": "Welcome!",
+        "body": "Welcome aboard!\n\nYour initial tasks are on the Trello board. Please also complete your onboarding paperwork by EOD.\n\nBest,\nHR",
+        "time": "09:00",
+        "avatar": "HR",
+        "stepIdToShow": "step1"
+    }
+    ],
+    "tasks": [
+    {
+        "id": "task001",
+        "title": "Fix mobile menu animation jank",
+        "description": "Optimize CSS transitions for mobile menu smoothness on iOS.",
+        "column": "Dev - To Do", 
+        "labels": [ 
+            {"color": "#eb5a46", "text": "Bug"},
+            {"color": "#0079bf", "text": "Mobile"}
+        ],
+        "deadline": "Sim-Day+1", 
+        "assignees": ["You"], 
+        "relevantStepId": "step6"
+    },
+    {
+        "id": "task002",
+        "title": "Implement image lazy loading",
+        "description": "Add Intersection Observer for images below the fold.",
+        "column": "Dev - To Do",
+        "labels": [{"color": "#00c2e0", "text": "Performance"}],
+        "deadline": "Sim-Day+2",
+        "assignees": ["You"],
+        "relevantStepId": "step8" 
+    },
+    {
+         "id": "task003",
+         "title": "Setup CI/CD pipeline",
+         "description": "GitHub Actions workflow implemented",
+         "column": "Done", 
+         "labels": [{"color": "#00c2e0", "text": "DevOps"}],
+         "deadline": "Sim-Day-1",
+         "assignees": ["Team"],
+         "relevantStepId": "step1" 
+    }
+    ]
+  }
