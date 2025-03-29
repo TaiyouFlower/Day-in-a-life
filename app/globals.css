@@ -10,7 +10,8 @@
     @apply h-full;
   }
   body {
-    @apply h-full overflow-hidden;
+    /* Remove overflow-hidden from here */
+    @apply h-full;
   }
   #__next {
     @apply h-full;

@@ -30,31 +30,42 @@ export default function CompanyAdminDashboard() {
       {/* Main Content - Choices */}
       <main className="flex-1 flex flex-col items-center w-full max-w-4xl">
         <h2 className="text-xl md:text-2xl font-medium text-gray-200 mb-10 text-center">Select an Area to Manage:</h2>
+        {/* Apply grid layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 w-full">
 
-          {/* Card 1: Candidate Simulations - Dark Theme Card Style */}
-          <Link href={candidateSimsRoute}>
-            <div className="bg-white/5 backdrop-blur-lg p-6 md:p-8 rounded-2xl border border-white/15 hover:bg-blue-900/30 hover:border-blue-400 transition-all duration-300 cursor-pointer group text-center transform hover:-translate-y-1 shadow-xl hover:shadow-2xl">
-              <div className="text-5xl md:text-6xl mb-5 text-blue-300 transition-transform duration-300 group-hover:scale-110">👥</div>
-              <h3 className="text-xl md:text-2xl font-semibold text-white mb-3 group-hover:text-blue-300 transition-colors duration-200">
-                Candidate Simulations
-              </h3>
-              <p className="text-sm text-gray-300 group-hover:text-gray-100 transition-colors">
-                Create, manage, and review simulations for potential new hires.
-              </p>
+          {/* Card 1: Candidate Simulations */}
+          <Link href={candidateSimsRoute} className="block"> {/* Ensure Link itself doesn't prevent stretching */}
+            {/* Add flex, flex-col, and h-full HERE */}
+            <div className="bg-white/5 backdrop-blur-lg p-6 md:p-8 rounded-2xl border border-white/15 hover:bg-blue-900/30 hover:border-blue-400 transition-all duration-300 cursor-pointer group text-center transform hover:-translate-y-1 shadow-xl hover:shadow-2xl flex flex-col h-full">
+              {/* Icon (doesn't need to grow) */}
+              <div className="text-5xl md:text-6xl mb-5 text-blue-300 transition-transform duration-300 group-hover:scale-110 flex-shrink-0">👥</div>
+              {/* Content Area */}
+              <div className="flex flex-col flex-grow"> {/* Allow this part to grow if needed */}
+                 <h3 className="text-xl md:text-2xl font-semibold text-white mb-3 group-hover:text-blue-300 transition-colors duration-200">
+                    Candidate Simulations
+                 </h3>
+                 <p className="text-sm text-gray-300 group-hover:text-gray-100 transition-colors">
+                    Create, manage, and review simulations for potential new hires.
+                 </p>
+              </div>
             </div>
           </Link>
 
-          {/* Card 2: Internal Tools/Mobility - Dark Theme Card Style */}
-          <Link href={internalMobilityRoute}>
-            <div className="bg-white/5 backdrop-blur-lg p-6 md:p-8 rounded-2xl border border-white/15 hover:bg-purple-900/30 hover:border-purple-400 transition-all duration-300 cursor-pointer group text-center transform hover:-translate-y-1 shadow-xl hover:shadow-2xl">
-              <div className="text-5xl md:text-6xl mb-5 text-purple-300 transition-transform duration-300 group-hover:scale-110">🔄</div>
-              <h3 className="text-xl md:text-2xl font-semibold text-white mb-3 group-hover:text-purple-300 transition-colors duration-200">
-                Internal Mobility & Development
-              </h3>
-              <p className="text-sm text-gray-300 group-hover:text-gray-100 transition-colors">
-                Tools for internal employee transitions, skill tracking, and development paths.
-              </p>
+          {/* Card 2: Internal Tools/Mobility */}
+          <Link href={internalMobilityRoute} className="block"> {/* Ensure Link itself doesn't prevent stretching */}
+             {/* Add flex, flex-col, and h-full HERE */}
+            <div className="bg-white/5 backdrop-blur-lg p-6 md:p-8 rounded-2xl border border-white/15 hover:bg-purple-900/30 hover:border-purple-400 transition-all duration-300 cursor-pointer group text-center transform hover:-translate-y-1 shadow-xl hover:shadow-2xl flex flex-col h-full">
+              {/* Icon (doesn't need to grow) */}
+              <div className="text-5xl md:text-6xl mb-5 text-purple-300 transition-transform duration-300 group-hover:scale-110 flex-shrink-0">🔄</div>
+              {/* Content Area */}
+              <div className="flex flex-col flex-grow"> {/* Allow this part to grow if needed */}
+                 <h3 className="text-xl md:text-2xl font-semibold text-white mb-3 group-hover:text-purple-300 transition-colors duration-200">
+                    Internal Mobility & Development
+                 </h3>
+                 <p className="text-sm text-gray-300 group-hover:text-gray-100 transition-colors">
+                    Tools for internal employee transitions, skill tracking, and development paths.
+                 </p>
+              </div>
             </div>
           </Link>
 
