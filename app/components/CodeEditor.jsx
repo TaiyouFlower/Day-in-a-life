@@ -33,7 +33,7 @@ export default function CodeEditor() {
       setIsRunning(false);
     }, 800); // Simulate 0.8 seconds execution time
   };
-
+  // Hello from Ruslan
   // --- Clear the output ---
   const handleClearOutput = () => {
       setOutput('');
