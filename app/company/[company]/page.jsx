@@ -1,6 +1,7 @@
 // app/company/[company]/page.jsx
 "use client";
 import { useParams, useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const positions = [
   {
@@ -11,9 +12,9 @@ const positions = [
       "React/Next.js development",
       "UI/UX implementation",
       "Cross-browser testing",
-      "Component library maintenance"
+      "Component library maintenance",
     ],
-    gradient: "from-blue-400 to-purple-400"
+    gradient: "from-blue-400 to-purple-400",
   },
   {
     title: "Backend Developer",
@@ -23,9 +24,9 @@ const positions = [
       "API development",
       "Database optimization",
       "System architecture",
-      "Cloud integration"
+      "Cloud integration",
     ],
-    gradient: "from-green-400 to-cyan-400"
+    gradient: "from-green-400 to-cyan-400",
   },
   {
     title: "UX Designer",
@@ -35,16 +36,45 @@ const positions = [
       "Wireframing & prototyping",
       "User testing sessions",
       "Design system management",
-      "Accessibility audits"
+      "Accessibility audits",
     ],
-    gradient: "from-pink-400 to-red-400"
-  }
+    gradient: "from-pink-400 to-red-400",
+  },
 ];
 
 export default function CompanyPage() {
   const router = useRouter();
   const { company } = useParams();
   const decodedCompany = decodeURIComponent(company);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const timer = setTimeout(() => {
+      if (isMounted) {
+        alert(
+          "Since the website is not fully ready yet, to test it out properly select Junior Frontend Developer."
+        );
+      }
+    }, 2000);
+
+    return () => {
+      isMounted = false;
+      clearTimeout(timer);
+    };
+  }, []);
+
+  const handlePositionChoose = (positionTitle) => {
+    if (positionTitle === "Junior Frontend Developer") {
+      router.push(
+        `/simulate?company=${encodeURIComponent(
+          company
+        )}&position=${encodeURIComponent(positionTitle)}`
+      );
+    } else {
+      alert("Not Ready Yet! Please Select Junior Frontend Developer :)");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 to-blue-900 p-8 overflow-hidden">
@@ -55,9 +85,24 @@ export default function CompanyPage() {
             <h1 className="text-2xl text-white">Day in a life</h1>
           </div>
           <div className="flex space-x-6 text-lg">
-            <a href="#" className="text-white/80 hover:text-white transition-colors">About</a>
-            <a href="#" className="text-white/80 hover:text-white transition-colors">Companies</a>
-            <a href="#" className="text-white/80 hover:text-white transition-colors">Careers</a>
+            <a
+              href="#"
+              className="text-white/80 hover:text-white transition-colors"
+            >
+              About
+            </a>
+            <a
+              href="#"
+              className="text-white/80 hover:text-white transition-colors"
+            >
+              Companies
+            </a>
+            <a
+              href="#"
+              className="text-white/80 hover:text-white transition-colors"
+            >
+              Careers
+            </a>
           </div>
         </div>
       </nav>
@@ -81,24 +126,40 @@ export default function CompanyPage() {
             <div
               key={position.title}
               className="relative bg-white/5 rounded-2xl p-8 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all group cursor-pointer animate-card-in"
-              onClick={() => router.push(`/simulate?company=${encodeURIComponent(company)}&position=${encodeURIComponent(position.title)}`)}
+              onClick={() => handlePositionChoose(position.title)} // Fixed here
             >
               {/* Gradient Background */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${position.gradient} opacity-0 group-hover:opacity-10 transition-opacity rounded-2xl`} />
-              
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${position.gradient} opacity-0 group-hover:opacity-10 transition-opacity rounded-2xl`}
+              />
+
               <div className="relative z-10">
                 <div className="w-16 h-16 mb-6 bg-white/10 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110">
                   <span className="text-3xl">{position.emoji}</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">{position.title}</h3>
+                <h3 className="text-2xl font-bold text-white mb-3">
+                  {position.title}
+                </h3>
                 <p className="text-gray-400 mb-6">{position.description}</p>
                 <div className="border-t border-white/10 pt-6">
-                  <h4 className="text-sm font-semibold text-gray-300 mb-4">Key Responsibilities:</h4>
+                  <h4 className="text-sm font-semibold text-gray-300 mb-4">
+                    Key Responsibilities:
+                  </h4>
                   <ul className="space-y-3">
                     {position.responsibilities.map((responsibility, idx) => (
                       <li key={idx} className="flex items-center text-gray-300">
-                        <svg className="w-5 h-5 mr-3 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        <svg
+                          className="w-5 h-5 mr-3 text-blue-400 flex-shrink-0"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
                         </svg>
                         {responsibility}
                       </li>
