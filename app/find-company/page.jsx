@@ -116,7 +116,7 @@ export default function FindCompanyPage() {
           </div>
 
           {/* Search Container */}
-          <div className="w-64 relative animate-slide-down">
+          <div className="w-140 relative animate-slide-down">
             <div className="relative">
               <input
                 type="text"
