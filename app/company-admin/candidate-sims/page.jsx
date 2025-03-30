@@ -34,7 +34,7 @@ export default function CandidateSimsPage() {
        </main>
         {/* Footer (Optional) */}
        <footer className="w-full max-w-6xl mx-auto mt-12 text-center text-gray-500 text-xs">
-            © {new Date().getFullYear()} Day in a Life Admin
+            © {new Date().getFullYear()} Real Role Admin
        </footer>
     </div>
   );

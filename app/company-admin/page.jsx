@@ -74,7 +74,7 @@ export default function CompanyAdminDashboard() {
 
       {/* Footer (Optional) */}
        <footer className="w-full max-w-7xl mx-auto mt-12 text-center text-gray-400 text-xs pb-4">
-            © {new Date().getFullYear()} Day in a Life Admin
+            © {new Date().getFullYear()} Real Role Admin
        </footer>
     </div>
   );
